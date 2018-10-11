@@ -1,14 +1,24 @@
 package com.revature.model;
 
 public class CheckingAccount implements Account {
+	
+	private double balance;
 
 	public CheckingAccount() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public boolean deposit(double amt) {
-		// TODO Auto-generated method stub
-		return false;
+		double current = balance;
+		if(amt > 0) {
+			balance += amt;
+		}
+		
+		if(amt == 0) {
+			throw new NullPointerException();
+		}
+		
+		return (balance == current + amt ? true : false);
 	}
 
 	public double withdrawal(double amt) {
